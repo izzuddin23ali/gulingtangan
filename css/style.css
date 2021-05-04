@@ -102,6 +102,7 @@ main {
 }
 
 .pots {
+  position: relative;
   width: 10vw;
   max-width: 30vh;
   margin: 0.4em;
@@ -125,6 +126,19 @@ main {
   background-color: var(--sub-color);
 }
 /*# sourceMappingURL=style.css.map */
+
+.key{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: bottom;
+  z-index: 5;
+  color: black;
+}
 
 /*loader*/
 
@@ -156,3 +170,4 @@ main {
     visibility: hidden;
   }
 }
+
