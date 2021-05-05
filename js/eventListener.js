@@ -1,11 +1,22 @@
+let PATH = './assets/gulingtangan-notes/';
+let FILE_EXTENSION = '.wav';
+let sustain = 0;
 //declaration
+let guling = document.querySelectorAll(".pots:not(.empty)");
 
+<<<<<<< HEAD
 let guling = document.querySelectorAll(".pots:not(empty)");
+=======
+>>>>>>> e7c2e7e80706cf2edb57cbe93b45ac4d8feefb5a
 
-//let keyToggle = document.getElementById("keyToggle");
+let keyArray = ["s", "d", "g", "h", "j", "z", "x", "c", "v", "b", "n", "m", ","];
 
-//let keys = document.querySelectorAll(".key");
+let urlsList = new Object;
+let keyNoteMap = new Object;
+guling.forEach(function (gulingtangan, index) {
+    let note = gulingtangan.id;
 
+<<<<<<< HEAD
 let notes=[
     {
         noteId: "Db4",
@@ -73,9 +84,15 @@ let notes=[
     }
 
 ]
+=======
+    // keyNoteMap FOR MAPPING KEYBOARD KEYS TO ITS NOTE
+    keyNoteMap[keyArray[index]] = note;
+>>>>>>> e7c2e7e80706cf2edb57cbe93b45ac4d8feefb5a
 
-//gulingtangan onclick
+    // urlsList FOR MAPPING NOTE TO ITS URL
+    urlsList[note] = note + FILE_EXTENSION;
 
+<<<<<<< HEAD
 guling.forEach(function(gulingtangan){
     gulingtangan.addEventListener("click", function(){
 //      gulingtangan.children[1].play();
@@ -93,8 +110,21 @@ function playNote(note){
 }
 
 //gulingtangan keypress
+=======
+    //MOUSE CLICK EVENT LISTENER
+    gulingtangan.addEventListener("mousedown", function () {
+        playNote(note);
+    })
+})
 
+function playNote(note) {
+    gulingtangan.triggerAttackRelease(note, sustain);
+}
+>>>>>>> e7c2e7e80706cf2edb57cbe93b45ac4d8feefb5a
+
+//KEYBOARD KEYS EVENT LISTENER
 document.addEventListener("keypress", logKey);
+<<<<<<< HEAD
 
 let keyArray = ["s", "d", "g", "h", "j", "z", "x", "c", "v", "b", "n", "m", ","];
 
@@ -103,30 +133,17 @@ function logKey(e){
         if(e.key === keyArray[i]){
             playNote(notes[i].note);
         }
+=======
+function logKey(e) {
+    if (keyNoteMap[e.key]) {
+        let note = keyNoteMap[e.key];
+        playNote(note);
+>>>>>>> e7c2e7e80706cf2edb57cbe93b45ac4d8feefb5a
     }
 }
 
-//toggle keyboard notes
-
-/*
-
-keyToggle.addEventListener("click", function(){
-    for(i=0; i<keys.length; i++){
-        if(keys[i].classList.contains("hidden")){
-            keys[i].classList.remove("hidden");
-        }
-        else{
-            keys[i].classList.add("hidden");
-        }
-    }
-})
-
-*/
-
-//loader
-
 let loader = document.getElementById("loader");
 
-window.addEventListener("load", function(){
+window.addEventListener("load", function () {
     loader.classList.add("hidden");
 })
